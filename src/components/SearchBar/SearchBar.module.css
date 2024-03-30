@@ -1,0 +1,29 @@
+.header {
+  background-color: #042940;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+
+.input {
+  width: 600px;
+  height: 45px;
+  background-color: #fff;
+  color: black;
+  font-size: 20px;
+  border-radius: 4px;
+  margin-right: 24px;
+  padding-left: 24px;
+}
+
+.button {
+  width: 120px;
+  height: 48px;
+  font-size: 20px;
+  border-radius: 7px;
+  background-color: #005c53;
+  color: #d6d58e;
+}
