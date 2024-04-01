@@ -1,14 +1,14 @@
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
 
-const ImageGallery = ({ images, onOpen }) => {
+const ImageGallery = ({ images, openModal }) => {
   return (
     <>
       <ul className={css.container}>
         {images.map((image) => (
           <li key={image.id}>
-            <div onClick={() => onOpen(image)}>
-              <ImageCard image={image} />
+            <div>
+              <ImageCard image={image} openModal={openModal} />
             </div>
           </li>
         ))}

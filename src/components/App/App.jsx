@@ -26,7 +26,7 @@ const App = () => {
         setIsLoading(true);
         setError(false);
         const data = await fetchCards(query, page);
-        if (data.lenght === 0) {
+        if (!data || data.length === 0) {
           toast("No results found");
           setAllData(true);
         } else {
@@ -51,6 +51,10 @@ const App = () => {
     setAllData(false);
   };
 
+  const handleLoadMore = () => {
+    setPage(page + 1);
+  };
+
   const openModal = (image) => {
     setSelectedImage(image);
     setShowModal(true);
@@ -65,14 +69,16 @@ const App = () => {
       <SearchBar onSearch={handleSearch} />
       {error && <ErrorMessage />}
 
-      {images.length > 0 && <ImageGallery images={images} onOpen={openModal} />}
+      {images.length > 0 && (
+        <ImageGallery images={images} openModal={openModal} />
+      )}
 
       {!allData && images.length > 0 && !isLoading && (
-        <LoadMoreBtn page={page} setPage={setPage} />
+        <LoadMoreBtn onLoadMore={handleLoadMore} />
       )}
 
       <ImageModal
-        onOpen={showModal}
+        isOpen={showModal}
         onClose={closeModal}
         image={selectedImage}
       />

@@ -2,7 +2,7 @@ import css from "./ImageModal.module.css";
 import Modal from "react-modal";
 Modal.setAppElement("#root");
 
-const ImageModal = ({ onOpen, onClose, image }) => {
+const ImageModal = ({ isOpen, onClose, image }) => {
   const customStyle = {
     overlay: {
       backgroundColor: "#414141b2",
@@ -10,7 +10,7 @@ const ImageModal = ({ onOpen, onClose, image }) => {
   };
   return (
     <Modal
-      isOpen={onOpen}
+      isOpen={isOpen}
       style={customStyle}
       onRequestClose={onClose}
       className={css.modal}
@@ -19,7 +19,7 @@ const ImageModal = ({ onOpen, onClose, image }) => {
         {image && (
           <img
             src={image.urls.regular}
-            alt={image.alt_descriptio}
+            alt={image.alt_description}
             className={css.img}
           />
         )}
